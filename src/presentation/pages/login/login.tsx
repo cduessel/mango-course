@@ -1,9 +1,10 @@
 import React from 'react';
 import Styles from './login-styles.scss';
 import Spinner from '../../components/spinner/spinner';
-import Logo from '../../components/logo/logo';
 import HeaderLogin from '../../components/header-login/header-login';
 import Footer from '../../components/footer/footer';
+import Input from '../../components/input/input';
+import FormStatus from '../../components/form-status/form-status';
 
 const Login: React.FC = () => {
   return (
@@ -11,20 +12,11 @@ const Login: React.FC = () => {
       <HeaderLogin />
       <form className={Styles.form}>
         <h2>Login</h2>
-        <div className={Styles.inputWrap}>
-          <input type="email" name="email" placeholder="Insira seu melhor e-mail" />
-          <span className={Styles.status}>🔴</span>
-        </div>
-        <div className={Styles.inputWrap}>
-        <input type="password" name="password" placeholder="Digite sua senha" />
-          <span className={Styles.status}>🔴</span>
-        </div>
+        <Input type="email" name="email" placeholder="Insira seu melhor e-mail" />
+        <Input type="password" name="password" placeholder="Digite sua senha" />
         <button className={Styles.submit} type="submit">Entrar</button>
         <span className={Styles.link}> Criar Conta</span>
-        <div className={Styles.errorWrap}>
-          <Spinner className={Styles.spinner} />
-          <span className={Styles.error}>Erro!</span>
-        </div>
+        <FormStatus />
       </form>
       <Footer />
     </div>
