@@ -5,7 +5,7 @@ import Context from "../../contexts/form/form-context"
 
 
 const FormStatus: React.FC = () => {
-  const { state, errorState } = useContext(Context)
+  const { state } = useContext(Context)
   const {isLoading, mainError } = state
 
   return (
