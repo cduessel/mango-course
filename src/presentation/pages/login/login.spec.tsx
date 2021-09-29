@@ -77,4 +77,17 @@ describe('<Login />', () => {
     expect(passwordStatus.title).toBe('Tudo certo')
     expect(passwordStatus.textContent).toBe('🟢')
   })
+
+  test('should enable submit button when Validation succeeds', () => {
+    const {sut, validationStub} = makeSut()
+    validationStub.errorMessage = null
+    const passwordInput = sut.getByTestId('password')
+    const password = faker.internet.password()
+    fireEvent.input(passwordInput, {target: {value: password}})
+    const emailInput = sut.getByTestId('email')
+    const email = faker.internet.email()
+    fireEvent.input(emailInput, {target: {value: email}})
+    const submitButton = sut.getByTestId('submit') as HTMLButtonElement
+    expect(submitButton.disabled).toBe(false)
+  })
 })
